@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+@theme {
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-[#1a1a1a] font-mono;
+    background-image: 
+      radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05) 0%, transparent 100%),
+      url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
+  }
+}
+
+.brushed-metal {
+  background: linear-gradient(135deg, #d1d1d1 0%, #a8a8a8 50%, #8c8c8c 100%);
+  background-size: 200% 200%;
+  box-shadow: 
+    inset 2px 2px 5px rgba(255,255,255,0.5),
+    inset -2px -2px 5px rgba(0,0,0,0.3),
+    0 10px 30px rgba(0,0,0,0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.brushed-metal::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 1px,
+    rgba(255, 255, 255, 0.05) 1px,
+    rgba(255, 255, 255, 0.05) 2px
+  );
+  pointer-events: none;
+}
+
+.led-screen {
+  background: #111;
+  border: 4px solid #333;
+  box-shadow: inset 0 0 20px rgba(0,0,0,1);
+}
+
+.screw {
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(circle at 30% 30%, #eee, #999);
+  border-radius: 50%;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  position: relative;
+}
+
+.screw::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background: #666;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.screw::after {
+  content: "";
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  width: 2px;
+  height: 80%;
+  background: #666;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.patch-jack {
+  width: 32px;
+  height: 32px;
+  background: radial-gradient(circle, #333 30%, #999 40%, #ccc 60%, #666 100%);
+  border-radius: 50%;
+  border: 2px solid #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.patch-jack::after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background: #000;
+  border-radius: 50%;
+  box-shadow: inset 0 0 5px rgba(255,255,255,0.2);
+}
+
+.knob-large {
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle at 30% 30%, #444, #111);
+  border-radius: 50%;
+  border: 4px solid #222;
+  box-shadow: 
+    5px 5px 15px rgba(0,0,0,0.8),
+    inset 2px 2px 5px rgba(255,255,255,0.1);
+  cursor: pointer;
+  position: relative;
+}
+
+.knob-indicator {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  width: 4px;
+  height: 20px;
+  background: #fff;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
